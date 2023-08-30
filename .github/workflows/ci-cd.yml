@@ -45,11 +45,6 @@ jobs:
           cd server
           npm install
 
-      - name: Build Backend
-        run: |
-          cd server
-          npm run build
-
       - name: Run Backend Tests
         run: |
           cd server
