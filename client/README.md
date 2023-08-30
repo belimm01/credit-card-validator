@@ -1,5 +1,9 @@
 # Getting Started
 
+## Pre-requirements
+Copy&paste .env.example into the same folder directory within this name ".env"   
+Run`npm install` to install all necessary dependencies
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -7,15 +11,16 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
+Open [http://localhost:80](http://localhost:80) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm prettier`
+
+Runs code formatting for a whole project.\
+
 
 ### `npm run build`
 
