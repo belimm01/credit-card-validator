@@ -1,33 +1,28 @@
-# Getting Started
+# Client
 
-## Pre-requirements
-Copy&paste .env.example into the same folder directory within this name ".env"   
-Run`npm install` to install all necessary dependencies
+React 18 single-page app built with Vite. Collects a credit card number and
+calls the backend API to check its validity.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+```bash
+npm install
+cp .env.example .env   # optional: set VITE_BE_URL for non-proxied setups
+```
 
-### `npm start`
+## Scripts
 
-Runs the app in the development mode.\
-Open [http://localhost:80](http://localhost:80) to view it in your browser.
+| Command           | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| `npm run dev`     | Start the Vite dev server (http://localhost:5173) |
+| `npm run build`   | Build the production bundle into `build/`         |
+| `npm run preview` | Preview the production build locally              |
+| `npm run lint`    | Lint with ESLint                                  |
+| `npm run format`  | Format with Prettier                              |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Backend URL
 
-
-### `npm prettier`
-
-Runs code formatting for a whole project.\
-
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+During development the Vite dev server proxies `/api` to
+`http://localhost:3000`, so no configuration is required. For production builds
+set `VITE_BE_URL` to the absolute backend URL; it is baked into the bundle at
+build time.
