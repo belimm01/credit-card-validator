@@ -1,4 +1,3 @@
-// Validate a credit card number using Luhn's algorithm.
 export const isAValidCreditCard = (cardNumber) => {
     let sum = 0;
     const parity = cardNumber.length % 2;
