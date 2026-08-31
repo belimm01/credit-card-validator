@@ -1,6 +1,5 @@
 import { isAValidCreditCard } from '../src/service/creditCardService.js';
 
-// Test cases
 test('Valid credit card number: 49927398716', () => {
     expect(isAValidCreditCard('49927398716')).toBe(true);
 });

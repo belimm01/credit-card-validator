@@ -12,13 +12,12 @@ app.use(
     cors({
         origin: process.env.CLIENT_ORIGIN || 'http://localhost',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        credentials: true, // Allow cookies and authentication headers to be included
+        credentials: true,
     })
 );
 
 app.use(requestLogger);
 
-// Use the routes defined in the separate file
 app.use('/', router);
 
 const port = process.env.PORT || 3000;

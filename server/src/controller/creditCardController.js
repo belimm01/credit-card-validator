@@ -1,7 +1,6 @@
 import { isAValidCreditCard } from '../service/creditCardService.js';
 import { logger } from '../utils/Logger.js';
 
-// API endpoint for credit card validation
 export const validateCreditCard = (req, res) => {
     const { creditCardNumber } = req.params;
 
