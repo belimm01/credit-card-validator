@@ -1,53 +1,37 @@
-## Getting Started
+# Server
 
-## Pre-requirements
-Run`npm install` to install all necessary dependencies
+Express API that validates credit card numbers using Luhn's algorithm.
+Written as ES modules and runs on Node.js 20+.
 
-## Run the server locally
-First, run the development server:
+## Setup
 
 ```bash
-npm install & \
-npm run dev
+npm install
+cp .env.example .env   # optional: override PORT / CLIENT_ORIGIN
 ```
 
-The server is running on [http://localhost:3000](http://localhost:3000)
+## Scripts
 
-## Available Scripts
-### `npm start`
+| Command          | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| `npm run dev`    | Start with file watching (http://localhost:3000) |
+| `npm start`      | Start the server                                 |
+| `npm test`       | Run the Jest unit tests                          |
+| `npm run lint`   | Lint with ESLint                                 |
+| `npm run format` | Format with Prettier                             |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## API
 
-### `npm test`
+`GET /api/validate/:creditCardNumber`
 
-Runs the app tests.\
+Numeric input returns `200`:
 
-### `npm prettier`
-
-Runs code formatting for a whole project.\
-
-## API Documentation:
-
-`api/validate/49927398716`
-
-### Description:
-
-if the creditCardNumber is a numeric string return an HTTP 200 response with
-a JSON body as below where isValid indicates if it is a valid credit card
-number:
-
-```
-{
-   "isValid": true/false
-}
+```json
+{ "isValid": true }
 ```
 
-if the creditCardNumber is not a numeric string (e.g. a54g65) return a 400
-HTTP response with a JSON body as below:
+Non-numeric input returns `400`:
 
-```
-{
-   "error": "Credit card number must be numeric"
-}
+```json
+{ "error": "Credit card number must be numeric" }
 ```
