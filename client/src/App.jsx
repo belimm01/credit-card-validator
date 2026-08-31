@@ -1,11 +1,11 @@
-import CreditCardInput from "./components/CreditCardInput";
+import CreditCardInput from './components/CreditCardInput'
 
 const App = () => {
     return (
         <div className="App">
-            <CreditCardInput/>
+            <CreditCardInput />
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
