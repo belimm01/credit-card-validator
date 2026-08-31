@@ -1,4 +1,4 @@
-const {isAValidCreditCard} = require( '../src/service/creditCardService.js')
+import { isAValidCreditCard } from '../src/service/creditCardService.js';
 
 // Test cases
 test('Valid credit card number: 49927398716', () => {

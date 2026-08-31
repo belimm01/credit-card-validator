@@ -1,22 +1,19 @@
-const {isAValidCreditCard} =  require('../service/creditCardService.js')
+import { isAValidCreditCard } from '../service/creditCardService.js';
+import { logger } from '../utils/Logger.js';
 
 // API endpoint for credit card validation
-const validateCreditCard = (req, res) => {
-    const creditCardNumber = req.params.creditCardNumber;
+export const validateCreditCard = (req, res) => {
+    const { creditCardNumber } = req.params;
 
     try {
         if (!/^\d+$/.test(creditCardNumber)) {
-            return res.status(400).json({error: 'Credit card number must be numeric'});
+            return res.status(400).json({ error: 'Credit card number must be numeric' });
         }
 
         const isValid = isAValidCreditCard(creditCardNumber);
-        res.json({isValid});
+        res.json({ isValid });
     } catch (error) {
-        console.error('An error occurred during credit card validation:', error);
-        res.status(500).json({error: 'Internal server error'});
+        logger.error(`An error occurred during credit card validation: ${error.message}`);
+        res.status(500).json({ error: 'Internal server error' });
     }
-};
-
-module.exports = {
-    validateCreditCard
 };

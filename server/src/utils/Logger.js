@@ -1,25 +1,20 @@
-const winston = require('winston');
+import winston from 'winston';
 
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.printf(({ timestamp, level, message }) => {
-            return `${timestamp} ${level}: ${message}`
-        })
+        winston.format.printf(
+            ({ timestamp, level, message }) => `${timestamp} ${level}: ${message}`
+        )
     ),
     transports: [
         new winston.transports.Console(),
         new winston.transports.File({ filename: 'logs/app.log' }),
     ],
-})
+});
 
-const requestLogger = (req, res, next) => {
-    logger.info(`${req.method} ${req.url}`)
-    next()
-}
-
-module.exports = {
-    logger,
-    requestLogger
+export const requestLogger = (req, _res, next) => {
+    logger.info(`${req.method} ${req.url}`);
+    next();
 };
